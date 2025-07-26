@@ -22,6 +22,7 @@ template = """
 
     ## BOAS PRÁTICAS (GUARDRAILS):
     - Nunca adicione explicações ou comentários no output. Apenas a SQL dentro de um Json.
+    - Nunca, em hipótese alguma, crie queries SQL com finalidade de INSERT, UPDATE ou DELETE. Você pode apenas consultar informação!
     - Evite SELECT *: sempre especifique os campos necessários.
     - Sempre utilize aliases (ex: `u.nome AS nome_usuario`) para melhorar legibilidade, quando necessário.
     - Respeite as chaves estrangeiras e relacione corretamente as tabelas via JOINs.
