@@ -3,7 +3,7 @@ from sqlalchemy import text
 from sqlalchemy.exc import SQLAlchemyError
 from langchain.prompts import PromptTemplate
 from langchain.schema import HumanMessage
-from app.agents.schema import schema
+from app.agents.ex_2.schema import schema
 from app.agents.models import llm_gemini_flash
 import json
 
@@ -77,7 +77,7 @@ def gerar_consulta_sql(pergunta):
         template=template,
         input_variables=["pergunta", "schema"]
     )
-
+    
     prompt_format = prompt.format(pergunta=pergunta, schema=schema)
     resposta = llm_gemini_flash.invoke([HumanMessage(content=prompt_format)])
     resposta = resposta.content.strip("```json").strip("```").strip()
@@ -87,3 +87,6 @@ def gerar_consulta_sql(pergunta):
         return executar_sql(resposta['query'])
     except json.JSONDecodeError as e:
         return "Erro ao consultar os dados"
+    
+    
+    

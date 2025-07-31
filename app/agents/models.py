@@ -18,4 +18,3 @@ llm_gemini_pro = ChatGoogleGenerativeAI(
     temperature=1,
 )
 
-

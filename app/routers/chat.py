@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, status
 from pydantic import BaseModel
-from app.agents.response_format import gerar_resposta
+from app.agents.ex_2.response_format import gerar_resposta
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
 class ChatQuestion(BaseModel):
