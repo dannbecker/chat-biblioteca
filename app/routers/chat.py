@@ -15,7 +15,7 @@ class ChatResponse(BaseModel):
     resposta: str
     session: str
 
-@router.post("/", response_model=ChatResponse, status_code=status.HTTP_200_OK, summary="Enviar nova Mensagem de Consulta")
+@router.post("/database", response_model=ChatResponse, status_code=status.HTTP_200_OK, summary="Enviar nova Mensagem de Consulta")
 def enviar_mensagem(pergunta: ChatQuestion):
     chat_sessions = mongodb_client["chat_biblioteca"].chat_sessions
     conversation_history = []
